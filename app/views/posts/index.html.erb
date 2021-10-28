@@ -1,1 +1,10 @@
-<h1>Your stuff to do: </h1>
+<h1> Your stuff to do: </h1>
+
+<% @posts.each do |post| %>
+  <h1> <%= post.title %> </h1>
+  <%= post.date %>
+  <p> <%= post.body %> </p>
+
+  <%= link_to 'edit', edit_post_path(post) %>
+  <%= link_to 'delete', post_path(post), method: :delete, data: {confirm: "Are you sure?"} %>
+<% end %>
